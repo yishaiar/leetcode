@@ -43,16 +43,31 @@ class TestExercise(unittest.TestCase):
         self.assertEqual(solution(" "),True)
 
 
+# class Solution:
+#     def isPalindrome(self, s: str) -> bool:
+#         s = "".join(c for c in s if c.isalnum()).lower()
+#         left,right = 0,len(s)-1
+#         while left < right:
+#             if s[left] != s[right]:
+#                 return False
+#             left,right = left+1,right-1
+    
+#         return True
+        
+def two_pointers(s):
+    left,right = 0,len(s)-1
+    while left < right:
+        if s[left] != s[right]:
+            return False
+        left,right = left+1,right-1
+    
+    return True
+
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         s = "".join(c for c in s if c.isalnum()).lower()
-        left,right = 0,len(s)-1
-        while left < right:
-            if s[left] != s[right]:
-                return False
-            left,right = left+1,right-1
-    
-        return True
+        return two_pointers(s)
+
         
   
 if __name__ == "__main__":
